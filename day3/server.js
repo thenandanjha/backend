@@ -1,6 +1,6 @@
 const express = require("express")
 
-const app = express()//the server we created by express here is not capable so much that it can read req.body data coming from client to server so we use middlewear to parse json method 
+const app = express()//the server we created by express here is not capable so much that it can read req.body data coming from client to server so we use middlewear express.json() to read the data 
 
 // 🔥 Middleware to parse JSON
 app.use(express.json())
