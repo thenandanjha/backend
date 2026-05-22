@@ -6,13 +6,14 @@ const express = require ("express")
 
 const app = express() //server is created here
 
-app.use(express.json())
+app.use(express.json()) //express.json() is miaddle ware here
 
 const notes = []
 /* post/notes */
 app.post("/notes",(req,res)=>{
-    
-    notes.push(req.body)
+  /* "/notes" is called routes */  
+    // notes.push(req.body)//to send single object of data
+    notes.push(...req.body)//to send mutltiple objects of data
 
     // console.log(notes)
 
@@ -57,7 +58,8 @@ app.delete("/notes/:index",(req,res)=>{
 })
 
 app.patch("/notes/:index",(req,res)=>{
-    notes[ req.params.index ].description = req.body.description
+      notes[req.params.index].description = req.body.description /* req.body contains the new data send by client to update*/
+      notes[req.params.index].title = req.body.title
     res.send("note updated sucesfully")
 })
 
