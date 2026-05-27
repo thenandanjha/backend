@@ -1,11 +1,6 @@
+require("dotenv").config()
 const connectToDb = require("./src/config/database")
 const app = require("./src/app")
-
-
-
-
-
-
 
 
 connectToDb()
