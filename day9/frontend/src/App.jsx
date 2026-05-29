@@ -7,7 +7,7 @@ import axios from 'axios'
 const App = () => {
   const [notes, setnotes] = useState([])
   
-  
+
   function fetchNotes(){
     axios.get("https://backend-6vsn.onrender.com/")
       .then((response)=>{
