@@ -5,22 +5,9 @@ import axios from 'axios'
 
 
 const App = () => {
-  const [notes, setnotes] = useState([
-    {
-    title:"test title 1",
-    description:"title 1 description"
-  },{
-    title:"test title 2",
-    description:"title 2 description"
-  },{
-    title:"test title 3",
-    description:"title 3 description"
-  },{
-    title:"test title 4",
-    description:"title 4 description"
-  }
-])
-
+  const [notes, setnotes] = useState([])
+  
+  
   function fetchNotes(){
     axios.get("https://backend-6vsn.onrender.com/")
       .then((response)=>{
@@ -70,7 +57,7 @@ const App = () => {
         <p>{note.description}</p>
         <button 
         onClick={()=>{
-          deleteHandle(note._id) //note._id gives the value notes id creted by mongoose in databse
+          deleteHandle(note._id) //note._id gives the value notes id created by mongoose in databse
         }}>
           delete
         </button>
