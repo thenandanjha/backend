@@ -6,6 +6,8 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+app.use(express.static("./public")) 
+
 
 
 app.post("/api/notes",async(req,res)=>{
@@ -22,7 +24,7 @@ app.post("/api/notes",async(req,res)=>{
 
 
 app.get("/api/notes",async (req,res)=>{
-    const notes = await noteModel.find()
+    const notes = await noteModel.find() //noteModel.find() will bring all the data of notemodel and save it in notes    variable
     res.status(200).json({
         message:"notes fetched succesfully",
         notes
@@ -32,8 +34,9 @@ app.get("/api/notes",async (req,res)=>{
 
 app.delete("/api/notes/:id",async(req,res)=>{
     const id = req.params.id
-    await noteModel.findByIdAndDelete(id)
+    await noteModel.findByIdAndDelete(id) 
     res.status(200).json({
+
         message:"notes deleted succcesfully"
         
     })
