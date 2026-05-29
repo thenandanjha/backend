@@ -1,7 +1,11 @@
+const express = require("express")   
 require("dotenv").config()
+
 const connectToDb = require("./src/config/database")
 const app = require("./src/app")
 const path = require("path")
+app.use(express.static("./public"))
+
 
 
 connectToDb()
