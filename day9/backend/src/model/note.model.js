@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const { schema } = require("../../../../day7/src/models/notes.model")
+
 
 /*
 To create a schema we use mongoose.Schema() in which we passa object of data how to be stored
