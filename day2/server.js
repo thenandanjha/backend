@@ -14,7 +14,7 @@ app.get("/about",(req,res)=>{
 })
 
 app.get("/home",(req,res)=>{
-    res.send("This is home page...")
+    res.send("This is home page.....")
 })
 
 app.get("/cart",(req,res)=>{
