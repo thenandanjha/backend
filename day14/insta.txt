@@ -1,0 +1,16 @@
+==> Authentication 
+
+    => register [1- user ka data save krna , 2- token create krna aur cookies m save krna]
+    => login
+    => logout (token blaclisting)
+    => token based registration
+
+==>Post
+    => create
+    =>can see the feed
+    =>like posts (collection types)
+    =>save post
+
+==>users
+    =>followers
+    =>folllowing
