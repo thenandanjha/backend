@@ -9,13 +9,13 @@ const App = () => {
   
 
   function fetchNotes(){
-    axios.get("https://backend-6vsn.onrender.com/")
+    axios.get("https://backend-6vsn.onrender.com/api/notes")
       .then((response)=>{
         setnotes(response.data.notes)
       })
   }
   function deleteHandle(noteId){
-   axios.delete("https://backend-6vsn.onrender.com/"+noteId)
+   axios.delete("https://backend-6vsn.onrender.com/api/notes"+noteId)
    .then(res=>{
     fetchNotes()
    })
@@ -29,7 +29,7 @@ const App = () => {
    const {title,description} =e.target.elements
   //  console.log(title.value,description.value)
 
-   axios.post("https://backend-6vsn.onrender.com/",{
+   axios.post("https://backend-6vsn.onrender.com/api/notes",{
     title:title.value,
     description:description.value
    })
@@ -59,7 +59,7 @@ const App = () => {
         onClick={()=>{
           deleteHandle(note._id) //note._id gives the value notes id created by mongoose in databse
         }}>
-          delete
+          Delete
         </button>
       </div>
       })
