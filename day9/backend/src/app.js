@@ -6,6 +6,9 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+const path = require("path")
+app.use(express.static("./public"))
+
 
 
 
@@ -13,18 +16,18 @@ app.use(express.json())
 app.post("/api/notes",async(req,res)=>{
     const {title ,description } = req.body
 
-    const notes = await noteModel.create({
+    const note = await noteModel.create({
         title ,description
     })
     res.status(201).json({
         message:"notes created succesfully",
-        notes
+        note
     })
 })
 
 
 app.get("/api/notes",async (req,res)=>{
-    const notes = await noteModel.find() //noteModel.find() will bring all the data of notemodel and save it in notes    variable
+    const notes = await noteModel.find() //noteModel.find() will bring all the data of notemodel and save it in notes  variable
     res.status(200).json({
         message:"notes fetched succesfully",
         notes
@@ -53,5 +56,15 @@ app.patch("/api/notes/:id",async(req,res)=>{
      
 
 })
+
+/* wild card routes
+Ye basically bol raha hai:
+"Agar koi bhi route match nahi hua, to index.html file bhej do."  */
+
+app.use("*name",(req,res) =>{
+    res.sendFile(path.join(__dirname,"..","/public/index.html"))
+})
+
+
 
 module.exports = app
