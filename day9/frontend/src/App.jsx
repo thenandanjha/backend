@@ -15,7 +15,7 @@ const App = () => {
       })
   }
   function deleteHandle(noteId){
-   axios.delete("https://backend-6vsn.onrender.com/api/notes"+noteId)
+   axios.delete("https://backend-6vsn.onrender.com/api/notes/"+noteId)
    .then(res=>{
     fetchNotes()
    })
